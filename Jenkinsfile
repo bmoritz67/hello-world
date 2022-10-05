@@ -49,9 +49,13 @@ pipeline {
             steps {
                 sh "jmeter -JUSER=100 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt"
                 logParser failBuildOnError: true, parsingRulesPath:'', useProjectRule: true, projectRulePath: 'parserules'
-                 }
+                }
             }
-
+        stage('Hello_World Install Docker in remote machine') {
+            steps {
+                ansibleTower jobTemplate: 'install_docker', jobType: 'run', throwExceptionWhenFail: false, towerCredentialsId: 'awx', towerLogLevel: 'full', towerServer: 'awx'
+                }
+            }
 
     }
 }
