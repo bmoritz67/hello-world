@@ -54,7 +54,7 @@ pipeline {
         stage('Hello_World Install Docker in remote machine') {
             steps {
                 ansibleTower jobTemplate: 'install_docker', jobType: 'run', throwExceptionWhenFail: false, towerCredentialsId: 'awx', towerLogLevel: 'full', towerServer: 'awx'
-                }
+                 }
             }
 
     }
