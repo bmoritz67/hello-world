@@ -68,6 +68,7 @@ pipeline {
                                                         docker push $USER/hello-world-afip
                                                     ''')
                     }
+                    }
                 }
             }
 
